@@ -27,15 +27,15 @@ app.get('/getall',(req,res)=>{
 
 //******************insert the data**************
 app.post('/insert',(req,res)=>{
-connection.query('insert into angular (username,age,email,gender) values(?,?,?,?)',[req.body.username,req.body.age,req.body.email,req.body.gender],function(error,results){
-   if(error){
-    console.log(error);
+   connection.query('insert into angular (username,age,email,gender) values(?,?,?,?)',[req.body.username,req.body.age,req.body.email,req.body.gender],function(error,results){
+      if(error){
+       console.log(error);
+      }
+      console.log('The solution is:', results);
+      res.json(results);
    }
-   console.log('The solution is:', results);
-   res.json(results);
-}
-)
-})
+   )
+   })
 
 //*********************delete the data*****************
 app.put('/delete',(req,res)=>{
